@@ -1,0 +1,46 @@
+{
+  "name": "bigperson/laravel-exchange1c",
+  "type": "library",
+  "description": "Catalog Loader from 1c - CommerceML with laravel",
+  "keywords": [
+    "1c",
+    "CommerceML",
+    "Laravel"
+  ],
+  "homepage": "https://github.com/bigperson",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Anton Kartsev",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "Bigperson\\LaravelExchange1C\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=7.1",
+    "laravel/framework": "^5.4",
+    "bigperson/exchange1c": "^1.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7",
+    "orchestra/testbench": "~3.0",
+    "mockery/mockery": "^1.2"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Bigperson\\LaravelExchange1C\\Exchange1CServiceProvider"
+      ]
+    }
+  }
+}

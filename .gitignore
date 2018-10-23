@@ -1,0 +1,10 @@
+phpunit*.phar
+composer.phar
+composer-test.lock
+vendor/
+build/artifacts/
+artifacts/
+.idea
+.DS_STORE
+
+_ide_helper.php
