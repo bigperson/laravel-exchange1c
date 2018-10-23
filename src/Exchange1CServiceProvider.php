@@ -17,7 +17,7 @@ use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class Exchange1CServiceProvider
+ * Class Exchange1CServiceProvider.
  */
 class Exchange1CServiceProvider extends ServiceProvider
 {
@@ -26,12 +26,13 @@ class Exchange1CServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        # routes
+        // routes
         $this->loadRoutesFrom(__DIR__.'/../publish/routes.php');
 
-        # config
+        // config
         $this->publishes([__DIR__.'/../publish/config/' => config_path()], 'config');
     }
+
     /**
      * Register the application services.
      */
@@ -43,6 +44,7 @@ class Exchange1CServiceProvider extends ServiceProvider
 
         $this->app->singleton(EventDispatcherInterface::class, function ($app) {
             $laravelDispatcher = $app[Dispatcher::class];
+
             return new LaravelEventDispatcher($laravelDispatcher);
         });
 
