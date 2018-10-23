@@ -40,14 +40,4 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         return [self::PACKAGE_PROVIDER];
     }
-
-    /**
-     * Setup the test environment.
-     */
-    protected function setUp()
-    {
-        parent::setUp();
-
-        $this->artisan('vendor:publish', ['--provider' => self::PACKAGE_PROVIDER]);
-    }
 }

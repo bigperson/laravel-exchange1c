@@ -13,12 +13,23 @@ use Tests\TestCase;
 
 class ImportControllerTest extends TestCase
 {
+    /**
+     * Define environment setup.
+     *
+     * @param  \Illuminate\Foundation\Application  $app
+     * @return void
+     */
+    protected function getEnvironmentSetUp($app)
+    {
+        // Setup default database to use sqlite :memory:
+        $app['config']->set('exchange1c', require_once __DIR__.'./../../publish/config/exchange1c.php');
+    }
+
     public function testRequest():void
     {
-        $path = config('exchange1c.exchange_path');
         $response = $this->call(
             'GET',
-            $path.'?type=catalog&mode=checkauth',
+            config('exchange1c.exchange_path').'?type=catalog&mode=checkauth',
             [],
             [],
             [],
@@ -32,10 +43,9 @@ class ImportControllerTest extends TestCase
 
     public function testLogicException():void
     {
-        $path = config('exchange1c.exchange_path');
         $response = $this->call(
             'GET',
-            $path.'?type=sale&mode=checkauth',
+            config('exchange1c.exchange_path').'?type=sale&mode=checkauth',
             [],
             [],
             [],
@@ -49,10 +59,9 @@ class ImportControllerTest extends TestCase
 
     public function testLoginExchange1CException():void
     {
-        $path = config('exchange1c.exchange_path');
         $response = $this->call(
             'GET',
-            $path.'?type=sale&mode=checkauth',
+            config('exchange1c.exchange_path').'?type=sale&mode=checkauth',
             [],
             [],
             [],
@@ -66,10 +75,9 @@ class ImportControllerTest extends TestCase
 
     public function testExchange1CException():void
     {
-        $path = config('exchange1c.exchange_path');
         $response = $this->call(
             'GET',
-            $path.'?type=catalog&mode=testmode',
+            config('exchange1c.exchange_path').'?type=catalog&mode=testmode',
             [],
             [],
             [],
