@@ -7,14 +7,12 @@
  */
 declare(strict_types=1);
 
-
 namespace Tests;
-
 
 use Bigperson\LaravelExchange1C\Exchange1CServiceProvider;
 
 /**
- * Class TestCase
+ * Class TestCase.
  */
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -34,7 +32,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
      * In a normal app environment these would be added to the 'providers' array in
      * the config/app.php file.
      *
-     * @param  \Illuminate\Foundation\Application  $app
+     * @param \Illuminate\Foundation\Application $app
      *
      * @return array
      */

@@ -24,7 +24,7 @@ class ImportControllerTest extends TestCase
             [],
             [
                 'PHP_AUTH_USER' => config('exchange1c.login'),
-                'PHP_AUTH_PW' => config('exchange1c.password')
+                'PHP_AUTH_PW'   => config('exchange1c.password'),
             ]
         );
         $response->assertStatus(200);
@@ -41,7 +41,7 @@ class ImportControllerTest extends TestCase
             [],
             [
                 'PHP_AUTH_USER' => config('exchange1c.login'),
-                'PHP_AUTH_PW' => config('exchange1c.password')
+                'PHP_AUTH_PW'   => config('exchange1c.password'),
             ]
         );
         $response->assertStatus(500);
@@ -58,7 +58,7 @@ class ImportControllerTest extends TestCase
             [],
             [
                 'PHP_AUTH_USER' => config('exchange1c.login'),
-                'PHP_AUTH_PW' => 'test'
+                'PHP_AUTH_PW'   => 'test',
             ]
         );
         $response->assertStatus(500);
@@ -75,7 +75,7 @@ class ImportControllerTest extends TestCase
             [],
             [
                 'PHP_AUTH_USER' => config('exchange1c.login'),
-                'PHP_AUTH_PW' => config('exchange1c.password')
+                'PHP_AUTH_PW'   => config('exchange1c.password'),
             ]
         );
         $response->assertStatus(500);

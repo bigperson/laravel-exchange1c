@@ -15,13 +15,14 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 /**
- * Class ImportController
+ * Class ImportController.
  */
 class ImportController extends Controller
 {
     /**
-     * @param Request $request
+     * @param Request        $request
      * @param CatalogService $service
+     *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function request(Request $request, CatalogService $service)
@@ -36,22 +37,21 @@ class ImportController extends Controller
                 }
 
                 $response = $service->$mode();
-                \Log::debug('exchange_1c: $response=' . "\n" . $response);
+                \Log::debug('exchange_1c: $response='."\n".$response);
 
                 return response($response, 200, ['Content-Type', 'text/plain']);
             } else {
                 throw new \LogicException(sprintf('Logic for method %s not released', $type));
             }
         } catch (Exchange1CException $e) {
-            \Log::error("exchange_1c: failure \n" . $e->getMessage() . "\n" . $e->getFile() . "\n" . $e->getLine() . "\n");
+            \Log::error("exchange_1c: failure \n".$e->getMessage()."\n".$e->getFile()."\n".$e->getLine()."\n");
 
             $response = "failure\n";
-            $response .= $e->getMessage() . "\n";
-            $response .= $e->getFile() . "\n";
-            $response .= $e->getLine() . "\n";
+            $response .= $e->getMessage()."\n";
+            $response .= $e->getFile()."\n";
+            $response .= $e->getLine()."\n";
 
             return response($response, 500, ['Content-Type', 'text/plain']);
         }
     }
 }
-

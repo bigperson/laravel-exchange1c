@@ -7,16 +7,14 @@
  */
 declare(strict_types=1);
 
-
 namespace Bigperson\LaravelExchange1C;
 
-
+use Bigperson\Exchange1C\Interfaces\EventDispatcherInterface;
+use Bigperson\Exchange1C\Interfaces\EventInterface;
 use Illuminate\Contracts\Events\Dispatcher;
-use \Bigperson\Exchange1C\Interfaces\EventDispatcherInterface;
-use \Bigperson\Exchange1C\Interfaces\EventInterface;
 
 /**
- * Class LaravelEventDispatcher
+ * Class LaravelEventDispatcher.
  */
 class LaravelEventDispatcher implements EventDispatcherInterface
 {
@@ -27,6 +25,7 @@ class LaravelEventDispatcher implements EventDispatcherInterface
 
     /**
      * LaravelEventDispatcher constructor.
+     *
      * @param Dispatcher $eventDispatcher
      */
     public function __construct(Dispatcher $eventDispatcher)
