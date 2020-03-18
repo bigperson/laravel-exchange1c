@@ -28,7 +28,7 @@
   },
   "require": {
     "php": ">=7.1",
-    "laravel/framework": "^5.4",
+    "laravel/framework": "^7.0",
     "bigperson/exchange1c": "^1.1"
   },
   "require-dev": {
