@@ -40,6 +40,10 @@ class ImportController extends Controller
                 \Log::debug('exchange_1c: $response='."\n".$response);
 
                 return response($response, 200, ['Content-Type', 'text/plain']);
+            } else if ($type === 'sale') {
+                $response = $service->checkauth();
+
+                return response($response, 200, ['Content-Type', 'text/plain']);
             } else {
                 throw new \LogicException(sprintf('Logic for method %s not released', $type));
             }
