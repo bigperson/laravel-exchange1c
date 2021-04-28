@@ -19,4 +19,6 @@ return [
         \Bigperson\Exchange1C\Interfaces\ProductInterface::class => \App\Models\Product::class,
         \Bigperson\Exchange1C\Interfaces\OfferInterface::class   => \App\Models\Offer::class,
     ],
+    'log_channel' => 'daily',
+    'queue'       => 'default'
 ];

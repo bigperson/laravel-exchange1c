@@ -46,7 +46,7 @@ class ImportControllerTest extends TestCase
     {
         $response = $this->call(
             'GET',
-            config('exchange1c.exchange_path').'?type=sale&mode=checkauth',
+            config('exchange1c.exchange_path').'?type=notsale&mode=checkauth',
             [],
             [],
             [],
@@ -62,7 +62,7 @@ class ImportControllerTest extends TestCase
     {
         $response = $this->call(
             'GET',
-            config('exchange1c.exchange_path').'?type=sale&mode=checkauth',
+            config('exchange1c.exchange_path').'?type=notsale&mode=checkauth',
             [],
             [],
             [],
