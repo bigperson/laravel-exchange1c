@@ -20,5 +20,5 @@ return [
         \Bigperson\Exchange1C\Interfaces\OfferInterface::class   => \App\Models\Offer::class,
     ],
     'log_channel' => 'daily',
-    'queue'       => 'default'
+    'queue'       => 'default',
 ];

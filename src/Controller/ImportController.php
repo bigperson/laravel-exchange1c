@@ -36,9 +36,8 @@ class ImportController extends Controller
         }
     }
 
-
     /**
-     * @param Request $request
+     * @param Request        $request
      * @param CatalogService $service
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
@@ -47,7 +46,7 @@ class ImportController extends Controller
     {
         $mode = $request->get('mode');
         $type = $request->get('type');
-        $this->log('requsest: ' . print_r($request->all(), true));
+        $this->log('requsest: '.print_r($request->all(), true));
 
         try {
             if ($type == 'catalog') {
@@ -67,7 +66,6 @@ class ImportController extends Controller
                     return response($response, 200, ['Content-Type', 'text/plain']);
                 }
 
-
                 CatalogServiceJob::dispatch(
                     $request->all(),
                     $request->session()->all()
@@ -83,7 +81,7 @@ class ImportController extends Controller
                 ));
 
                 return response($response, 200, ['Content-Type', 'text/plain']);
-            } else if ($type === 'sale') {
+            } elseif ($type === 'sale') {
                 $response = $service->checkauth();
                 $this->log(sprintf(
                     'New sale request, type: %s, mode: %s, response: %s. Logic for sale type not released!',
@@ -101,14 +99,14 @@ class ImportController extends Controller
             }
         } catch (Exchange1CException $e) {
             $this->log(
-                "exchange_1c: failure \n" . $e->getMessage() . "\n" . $e->getFile() . "\n" . $e->getLine() . "\n",
+                "exchange_1c: failure \n".$e->getMessage()."\n".$e->getFile()."\n".$e->getLine()."\n",
                 'error'
             );
 
             $response = "failure\n";
-            $response .= $e->getMessage() . "\n";
-            $response .= $e->getFile() . "\n";
-            $response .= $e->getLine() . "\n";
+            $response .= $e->getMessage()."\n";
+            $response .= $e->getFile()."\n";
+            $response .= $e->getLine()."\n";
 
             return response($response, 500, ['Content-Type', 'text/plain']);
         }

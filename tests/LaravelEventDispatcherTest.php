@@ -15,7 +15,7 @@ use Bigperson\LaravelExchange1C\LaravelEventDispatcher;
 
 class LaravelEventDispatcherTest extends TestCase
 {
-    public function testDispatch():void
+    public function testDispatch(): void
     {
         $dispatcher = $this->makeDispatcher();
         $event = $this->createMock(EventInterface::class);

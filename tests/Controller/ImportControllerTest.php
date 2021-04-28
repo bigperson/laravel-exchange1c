@@ -26,7 +26,7 @@ class ImportControllerTest extends TestCase
         $app['config']->set('exchange1c', require_once __DIR__.'./../../publish/config/exchange1c.php');
     }
 
-    public function testRequest():void
+    public function testRequest(): void
     {
         $response = $this->call(
             'GET',
@@ -42,7 +42,7 @@ class ImportControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function testLogicException():void
+    public function testLogicException(): void
     {
         $response = $this->call(
             'GET',
@@ -58,7 +58,7 @@ class ImportControllerTest extends TestCase
         $response->assertStatus(500);
     }
 
-    public function testLoginExchange1CException():void
+    public function testLoginExchange1CException(): void
     {
         $response = $this->call(
             'GET',
@@ -74,7 +74,7 @@ class ImportControllerTest extends TestCase
         $response->assertStatus(500);
     }
 
-    public function testExchange1CException():void
+    public function testExchange1CException(): void
     {
         $response = $this->call(
             'GET',

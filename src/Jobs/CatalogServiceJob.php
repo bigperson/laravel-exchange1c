@@ -23,7 +23,10 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class CatalogServiceJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * The number of seconds the job can run before timing out.
@@ -71,10 +74,11 @@ class CatalogServiceJob implements ShouldQueue
 
     /**
      * Get the tags that should be assigned to the job.
+     *
      * @return array
      */
     public function tags(): array
     {
-        return ['1cExchange', 'mode: ' . $this->requestData['mode'] . ', file: ' . $this->requestData['filename']];
+        return ['1cExchange', 'mode: '.$this->requestData['mode'].', file: '.$this->requestData['filename']];
     }
 }
