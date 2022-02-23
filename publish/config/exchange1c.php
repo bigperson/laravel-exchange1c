@@ -21,4 +21,14 @@ return [
     ],
     'log_channel' => 'daily',
     'queue'       => 'default',
+    'auth' => [
+        'custom' => false,
+        'callback' => function ($username, $password) {
+            if ($username == 'admin' && $password == 'admin') {
+                return true;
+            }
+    
+            return false;
+        }
+    ]
 ];
