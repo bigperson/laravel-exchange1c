@@ -1,10 +1,12 @@
 <?php
+
 /**
  * This file is part of bigperson/laravel-exchange1c package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 declare(strict_types=1);
 
 return [
@@ -21,4 +23,14 @@ return [
     ],
     'log_channel' => 'daily',
     'queue'       => 'default',
+    'auth'        => [
+        'custom'   => false,
+        'callback' => function ($username, $password) {
+            if ($username == 'admin' && $password == 'admin') {
+                return true;
+            }
+
+            return false;
+        },
+    ],
 ];
